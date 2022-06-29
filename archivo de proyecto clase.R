@@ -45,7 +45,7 @@ if ((numero %% 2==0)) {
   print(paste(numero,"Es impar"))
 }
 
-nombres <- c("Andrea", "Carlos", "Juan", "Carolina", "Fernando", "Laura")
+nombres <- c("Andrea", "Carlos", "Juan", "Carolina", "Fernando", "Laura","Daniela")
 
 # Solución:
 for (nombre in nombres) {
@@ -58,3 +58,4 @@ mi_funcion <<- function(a,b=1){
 mi_funcion(5)
 respuesta <- mi_funcion(2,3)
 respuesta
+
