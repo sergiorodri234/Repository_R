@@ -19,7 +19,7 @@ lista_1 <- list(
   c(TRUE,FALSE,TRUE),
   c(2.3,5.9)
 )
-# Se hace una asignacion  para ambos casoS con el fin de visualizar el  type en el entorno de trabajo  
+# Se hace una asignacion  para ambos casos con el fin de visualizar el  type en el entorno de trabajo  
 lista_1_corcherte_normal <- lista_1[2]
 lista_1[2]
 lista_1_corcherte_normal
