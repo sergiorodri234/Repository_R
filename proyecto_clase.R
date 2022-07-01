@@ -50,6 +50,7 @@ if (numero %% 2==0) {
 } else if (numero %% 2!=0) {
   print(paste(numero,"Es impar"))
 }
+# el if que continua al else para este caso no seria estrictamente necesario puesto que no hay mas de dos condiciones ,sin embargo se dejara  de acuerdo a la estructura planteada en el taller
 
 # PUNTO 4
 
