@@ -6,7 +6,6 @@ library(naniar)
 all <- read_csv("https://raw.githubusercontent.com/sergiorodri234/raws/main/all_csv%20sorted.csv", 
                 col_types = cols(Average_price_2021 = col_double(), 
                                   Average_price__2020 = col_double()))
-View(columnas) 
 
 colnames(all)
 # Cambio de nombres para facilitar acceso a las columnas/variables a utilizar -----
