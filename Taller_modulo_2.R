@@ -27,7 +27,9 @@ all <- all %>% rename(ind = "...1" ,
 
 
 # Estructura de la base ------
-glimpse(all)
+all %>% 
+  glimpse() %>% 
+  select(1:10)
 
 # DataFrame con los missing values ----- 
 df_miss <- data.frame(miss_var_summary(all))
