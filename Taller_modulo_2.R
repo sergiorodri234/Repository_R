@@ -48,7 +48,11 @@ all %>%
   select(continental,avg) %>% 
   group_by(continental)  %>% 
   arrange((avg))
-
+# la region con el internet promedio mas lento corresponde a las cercanas al este ("Near East")
+paises_region_internet_promedio_mas_lento <- all %>%  
+   filter(continental== "NEAR EAST" ) %>% 
+   select(continental,country) 
+   
 
 #  grafico de dispersion  con las variables de velocidad promedio y porcentaje de usuarios de internet
 
