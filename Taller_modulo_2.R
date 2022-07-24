@@ -52,9 +52,10 @@ all %>%
 paises_region_internet_promedio_mas_lento <- all %>%  
    filter(continental== "NEAR EAST" ) %>% 
    select(continental,country) 
-   
 
-#  grafico de dispersion  con las variables de velocidad promedio y porcentaje de usuarios de internet
+# Lo anterior corresponde  a un tibble donde se encuentra el listado de los paises pertenecientes a esta region
+
+#  grafico de dispersion  con las variables de velocidad promedio y porcentaje de usuarios de internet-----
 
 
 
