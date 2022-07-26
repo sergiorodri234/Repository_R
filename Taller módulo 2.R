@@ -84,18 +84,21 @@ all<-all%>%
 ## denotamos que en la mayoría de casos los  de usuarios de internet y su 
 #velocidad promedio, es menor a 50 mbps.
 
-ggplot(all, aes(x=porcentaje_usuarios, y=avg))+
-  geom_point(alpha= 0.8,colour='orange', lwd=3)+
+
+ggplot(all, aes(x=porcentaje_usuarios , y=avg))+
+  geom_point(alpha=0.3,colour='orange', lwd=3)+
+  geom_smooth(formula = y~ x ,method = loess, se = F)+
   theme_bw()+
-  scale_x_reverse() +
-  scale_y_reverse() +
   scale_y_continuous(limits= c(0,135), breaks = seq(0,140,15))+
-  labs(
-    title = 'Gráfico De Dispersión',
-    x='Porcentaje de usuarios de internet',
-    y='Velocidad promedio'
-  )
+  scale_x_continuous(seq(1,100,1))+
+                       labs(
+                         title = 'Gráfico De Dispersión',
+                         x='Porcentaje de usuarios de internet',
+                         y='Velocidad promedio'
+                       )
 
+cor(all$porcentaje_usuarios,all$avg,use = "na.or.complete",method = "pearson")
 
+                     
 
 
