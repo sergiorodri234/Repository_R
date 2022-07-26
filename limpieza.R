@@ -1,28 +1,33 @@
-library(readr)
 library(tidyverse)
+library(readr)
+library(patchwork)
 
-df <- read_delim("Pdfs R/2020_ANONIMIZADA_FINAL.csv", 
-                                      delim = ";", escape_double = FALSE, trim_ws = TRUE,show_col_types = F)
-
-colnames(df)
-
-
-df %>%
-  select("V1","BRUTA","PERSONOM","VENTA","GASTOPNOP","INVPRO","AGREGA","TOTMUJ","TOTHOM")
-df1 <- mutate_at(df, c("TOTMUJ"), ~replace(., is.na(.), 0))
+base <- read_csv('https://raw.githubusercontent.com/sergiorodri234/raws/main/songs_normalize.csv')
 
 
+p1 <- ggplot(base, aes(x = danceability, y = valence)) +
+  geom_point(alpha=0.3,color = '#00D7FF') + labs(
+    title = "Scatterplot"
+    
+  )
 
 
-df2 <- df1 %>%
-  group_by("V1")
+p2 <-  ggplot(base, aes(x= mode, y = energy, colour = factor(mode))) +
+  geom_boxplot(show.legend = F) + labs(
+    title = "Boxplot"
+    
+  )
 
 
 
 
+ p3 <- p1 + p2 
 
 
-x<- df %>% select(TOTMUJ)  
 
-
+#Quisimos hacer un leve acercamiento para realizar un análisis de los gráficos boxplot, 
+#podemos observar que el boxplot con mode en 0 tiene el dato medio (el 50%) en 0,73, 
+#adicionalmente observamos que para ambos boxplot se  encuentran 6 datos atípicos.
+#Por el contrario para el boxplot con mode en 1.0 los cuartiles son levemente menores
+#a los del boxplot anterior.
 
