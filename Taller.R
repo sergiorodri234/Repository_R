@@ -16,7 +16,7 @@ p1 <- ggplot(base, aes(x = danceability, y = valence)) +
   )
 ## 2. Boxplot -----
 
-p2 <-  ggplot(base, aes(x= mode, y = energy, colour = factor(mode))) +
+p2 <-  ggplot(base, aes(x= factor(mode), y = energy, colour = factor(mode))) +
   geom_boxplot(show.legend = F) + labs(
     title = "Boxplot"
     
