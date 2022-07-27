@@ -1,16 +1,20 @@
 library(tidyverse)
 library(readr)
 library(patchwork)
+##LIZETH VILLAMIL Y SERGIO RODRIGUEZ
+
 
 base <- read_csv('https://raw.githubusercontent.com/sergiorodri234/raws/main/songs_normalize.csv')
 
 
+## 1. Gráfico de Dispersión -----
+
 p1 <- ggplot(base, aes(x = danceability, y = valence)) +
-  geom_point(alpha=0.3,color = '#00D7FF') + labs(
+  geom_point(alpha=0.3,color = 'blue') + labs(
     title = "Scatterplot"
     
   )
-
+## 2. Boxplot -----
 
 p2 <-  ggplot(base, aes(x= mode, y = energy, colour = factor(mode))) +
   geom_boxplot(show.legend = F) + labs(
@@ -19,6 +23,7 @@ p2 <-  ggplot(base, aes(x= mode, y = energy, colour = factor(mode))) +
   )
 
 
+## 3. Composición con Patchwork ------
 
 
  p3 <- p1 + p2 
