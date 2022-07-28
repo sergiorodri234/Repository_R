@@ -73,7 +73,7 @@ all %>%
   arrange(promedio)
 ##4)
 
-# la region con el internet  mas lento en megabits corresponde a las cercanas a Sub-Saharan Africa
+# la region con el internet  mas lento en megabits corresponde a Sub-Saharan Africa
 
 paises_region_internet_mas_lento <- all %>%  
   filter(continental== "SUB-SAHARAN AFRICA" ) %>% 
