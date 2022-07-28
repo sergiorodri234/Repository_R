@@ -69,16 +69,15 @@ all_   # se usa para ver el resultado en la consola
 all %>% 
   select(continental,avg) %>% 
   group_by(continental)  %>% 
-  arrange((avg))
-
+  summarise(promedio = mean(avg,na.rm=TRUE)) %>% 
+  arrange(promedio)
 ##4)
 
-# la region con el internet promedio mas lento corresponde a las cercanas al este ("Near East")
+# la region con el internet  mas lento en megabits corresponde a las cercanas a Sub-Saharan Africa
 
-paises_region_internet_promedio_mas_lento <- all %>%  
-  filter(continental== "NEAR EAST" ) %>% 
+paises_region_internet_mas_lento <- all %>%  
+  filter(continental== "SUB-SAHARAN AFRICA" ) %>% 
   select(continental,country) 
-
 # Lo anterior corresponde a un tibble donde se filtran los paises pertenecientes para esta region.
 
 
