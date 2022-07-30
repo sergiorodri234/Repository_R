@@ -70,12 +70,12 @@ resultado_inner <- base2_wider %>%
 #2.4)
 
 resultado_inner %>% 
-  select(Restaurant, Price, Food, Service) %>% 
+  select(Restaurant, Price, Food, Decor, Service) %>% 
   arrange(desc(Price)) %>% 
   slice(168)
 #Con esto nos damos cuenta que el restaurante màs barato es el Lamarca con un precio de 19.
 resultado_inner %>% 
-  select(Restaurant, Price, Food, Service) %>% 
+  select(Restaurant, Price, Food, Decor, Service) %>% 
   arrange(desc(Price)) %>% 
   head(1)
 #Con esto nos damos cuenta que el restaurante màs caro es el Harry Cipriani con un precio de 65.
