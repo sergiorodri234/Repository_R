@@ -73,7 +73,7 @@ resultado_inner %>%
   select(Restaurant, Price, Food, Service) %>% 
   arrange(desc(Price)) %>% 
   slice(168)
-#Con esto nos damos cuenta que el restaurante màs barao es el Lamarca con un precio de 19.
+#Con esto nos damos cuenta que el restaurante màs barato es el Lamarca con un precio de 19.
 resultado_inner %>% 
   select(Restaurant, Price, Food, Service) %>% 
   arrange(desc(Price)) %>% 
