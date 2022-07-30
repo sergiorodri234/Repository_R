@@ -22,7 +22,8 @@ if (calificacion >=0 & calificacion <10) {
 }
 return(result)
 }
-
+check(9)
+check(10)
 check(20)
 
 
@@ -31,7 +32,8 @@ check(20)
 check2<-function(calidad=10, decoracion=5, servicio=15){
   return(calidad+decoracion+servicio)
 }
-check2(5,5,5)
+check2()        #si no se ponen valores toma los valores por defecto 
+check2(5,5,5)   # definiendo valores especificos
 
 
 ##PUNTO 2 Tidyverse 
