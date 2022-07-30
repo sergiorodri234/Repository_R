@@ -113,8 +113,6 @@ summary(regresion)
 ##PUNTO CUATRO Visualización de datos
 
 #4.1) Gráfico de Densidad -----
-resultado_inner<-resultado_inner %>% 
-  as.factor(East)
 
 
 ggplot(resultado_inner, aes(x=Service, linetype=factor(East)))+
