@@ -7,7 +7,7 @@ library(ggplot2
 library(readr)
 
 #PRIMERO PUNTO 
-#1.1)
+#1.1) Loop If -----
 
 
 calificacion<- 30
@@ -26,7 +26,7 @@ return(result)
 check(20)
 
 
-#1.2)
+#1.2) Funciones -----
 
 check2<-function(calidad=10, decoracion=5, servicio=15){
   return(calidad+decoracion+servicio)
@@ -34,9 +34,9 @@ check2<-function(calidad=10, decoracion=5, servicio=15){
 check2(5,5,5)
 
 
-##PUNTO 2
+##PUNTO 2 Tidyverse 
 
-#2.1)
+#2.1) Cargar datos -----
 
 
 base<-read_csv('https://raw.githubusercontent.com/camartinezbu/2022-Intersemestral-R-USTA/main/Modulo_5/restaurant_locations.csv')
@@ -52,14 +52,14 @@ base2 %>%
 ##Como podemos observar no en todas las columnas tenemos variables es por esto que con el 
 #punto que si se le realizara un cambio a la base para que quede bien organizada.
 
-#2.2)
+#2.2) Pivot -----
 
 base2_wider <- base2 %>%
   pivot_wider(names_from = Variable, values_from = Valor)
 base2_wider %>% 
   glimpse()
 
-#2.3)
+#2.3) Joins -----
 
 base<-base %>% 
   rename(Id="Id_restaurant")
@@ -67,7 +67,7 @@ base<-base %>%
 resultado_inner <- base2_wider %>%
   inner_join(base, by = "Id")
 
-#2.4)
+#2.4) Select y arrange -----
 
 resultado_inner %>% 
   select(Restaurant, Price, Food, Decor, Service) %>% 
@@ -81,7 +81,7 @@ resultado_inner %>%
 #Con esto nos damos cuenta que el restaurante màs caro es el Harry Cipriani con un precio de 65.
 
 
-#2.5)
+#2.5) Group_by y Summarise -----
 
 resultado_inner %>% 
   group_by(East) %>% 
@@ -90,9 +90,9 @@ resultado_inner %>%
 #Como podemos ver la comida es màs cara en el lado Este de  Manhattan con un promedio en el
 #precio de la comida de 44,0, cabe resaltar que el precio promedio en el Oeste es de 40,0.
 
-#PUNTO TRES
+#PUNTO TRES Análisis estadístico
 
-#3.1)
+#3.1)  Regresión lineal -----
 
 regresion = lm(Price ~
             Food +
@@ -108,9 +108,9 @@ summary(regresion)
 
 #Adicionalmente la variable que influye màs en el pre precio de la comida es Decor 
 
-##PUNTO CUATRO
+##PUNTO CUATRO Visualización de datos
 
-#4.1)
+#4.1) Gráfico de Densidad -----
 resultado_inner<-resultado_inner %>% 
   as.factor(East)
 
@@ -125,7 +125,7 @@ ggplot(resultado_inner, aes(x=Service, linetype=factor(East)))+
 
 ## La zona de Manhattan que cuenta con mejor calificaciòn de servicio es la zona Este.
 
-#4.2)
+#4.2) Gráfico de Dispersión -----
 ggplot(resultado_inner, aes(x=Price, y=Decor, color=factor(East)))+
   geom_point()+
   labs(title='Gráfico de Dispersión',
